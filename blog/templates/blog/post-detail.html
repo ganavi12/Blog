@@ -1,0 +1,34 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block title %} 
+{{post.title}}
+{% endblock %} 
+
+{% block css_files %} 
+<link rel="stylesheet" href="{% static "blog/post-detail.css" %}">  
+
+{% endblock %} 
+
+{% block content %}
+<section id="summary">
+
+     <header id="main-navigation">
+        <h1><a href="{% url "starting-page" %}">Ganavi Blog</a></h1>
+        <nav>
+            <a href="{% url "posts-page" %}">All Posts</a>
+        </nav>
+    </header> 
+    
+  <h2>{{post.title}}</h2>
+  <article>
+    <img src="{% static "blog/images/"|add:post.image %}" alt="Post Title" />
+    <address>By {{post.author}}</address>
+    <div>Last updated on <time>{{post.date|date:"d M Y"}}</time></div>
+  </article>
+</section>
+
+<main>
+  <p>{{post.content|linebreaks}}</p>
+</main>
+{% endblock %}
