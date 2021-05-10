@@ -1,4 +1,12 @@
 from django import forms
+from .models import Comment
 
-class CommentForm(forms.Form):
-    forms.CharField(max_length=100,label="Your Comment") 
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        exclude = ["post"]
+        labels = {
+            "user_name": "Your Name", 
+            "user_email": "Your Email",
+            "text" : "Your Comment"
+        }

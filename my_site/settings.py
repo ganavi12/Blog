@@ -128,8 +128,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIR = [
     STATICFILES_DIR,
     # BASE_DIR/'static'
-]
+] 
 
 
 MEDIA_ROOT = MEDIA_ROOT 
-MEDIA_URL = "/files/"
+MEDIA_URL = "/files/" 
