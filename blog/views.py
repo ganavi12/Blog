@@ -3,10 +3,11 @@ from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.template.loader import render_to_string
 # from datetime import date
 from .models import Post, Tag, Author
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView,CreateView
 from .forms import CommentForm
 from django.views import View
 from django.urls import reverse
+
 
 # all_posts = []
 
@@ -134,5 +135,21 @@ class ReadLaterView(View):
         else:
             stored_posts.remove(post_id)
         request.session["stored_posts"] = stored_posts
-        return HttpResponseRedirect("/") 
-      
+        return HttpResponseRedirect("/")
+        
+
+# class CustomMixin(object):
+    
+#     def get_context_data(self, **kwargs):
+        
+#         # Call class's get_context_data method to retrieve context
+#         context = super().get_context_data(**kwargs) 
+        
+#         context['page_title'] = 'My page title'
+#         return context
+
+# # Your view function now inherits from the Mixin
+# class CreateObject(CustomMixin, CreateView):
+#     model = Post
+#     form_class = CommentForm
+#     success_url = 'url_to_redirect_to'
