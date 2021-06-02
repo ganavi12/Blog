@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from os import getenv
+# from os import getenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,8 +19,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATICFILES_DIR = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles') 
-# PROJECT_PATH = os.path.realpath(os.path.join(os.path.dirname(__file__), '..'))
-# SETTINGS_PATHS = [os.path.dirname(__file__),]
+
 
 
 
@@ -35,14 +34,18 @@ SECRET_KEY = 'p4b!&^i1y-!e=&og_$d0a4!c1bvc$q=baq!fe2&j03rt7$oin$'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = getenv("IS_DEVELOPMENT",True)
+DEBUG = True
+
+ALLOWED_HOSTS = [ ]
+
+
+# DEBUG = getenv("IS_DEVELOPMENT",True)
 # DEBUG = False
 
 
-ALLOWED_HOSTS = [
-    getenv("APP_HOST")
-]
+# ALLOWED_HOSTS = [
+#     getenv("APP_HOST")
+# ]
 
 
 # Application definition
@@ -56,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'celery',
-    'npm_mjs',
+    # 'npm_mjs',
 ]
 
 MIDDLEWARE = [
@@ -140,7 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 # STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_ROOT = STATIC_ROOT
+# STATIC_ROOT = STATIC_ROOT
 STATIC_URL = '/static/'
 
 STATICFILES_DIR = [
@@ -155,7 +158,7 @@ MEDIA_URL = "/files/"
 # celery
 
 # BROKER_URL = 'redis://127.0.0.1:6379/0'
-CELERY_BROKER_URL = 'redis://localhost:6379'
-BROKER_TRANSPORT = 'redis' 
+# CELERY_BROKER_URL = 'redis://localhost:6379'
+# BROKER_TRANSPORT = 'redis' 
 
 
